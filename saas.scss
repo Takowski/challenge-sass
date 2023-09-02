@@ -1,0 +1,107 @@
+$red: #FF0000;
+$green: #00FF00;
+$orange: orange;
+$grey : #6b717f;
+$black: black;
+$purple : #BF4080;
+$padding: 0 1em;
+
+body {
+    font: 100% "Space Mono", monospace;
+    color: $grey;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    overflow-x: hidden;
+    
+    h1, h2, h3 {
+        color: $purple;
+    }
+    h1 {
+        text-align: center;
+    }
+    h3 {
+        text-align: center;
+        font-size: 1.5em;
+        padding: $padding + $padding;
+        margin-bottom: 0px;
+    }
+    footer {
+        padding: $padding + $padding;
+    }
+
+}
+
+main {
+    padding: $padding;
+}
+
+@mixin boxshadow {
+    -webkit-box-shadow: 10px 10px 15px -4px $grey;
+    -moz-box-shadow: 10px 10px 15px -4px $grey;
+    box-shadow: 10px 10px 15px -4px $grey;
+}
+article { 
+    display: flex;
+    flex-wrap: wrap;
+    section {
+        flex-grow: 1;
+        flex-basis: 45%;
+        border: 1px #8C8C8C solid;
+        padding: $padding;
+        @include boxshadow;
+        margin: 16px;
+        clear: both;
+        overflow: auto;
+        box-sizing: border-box;
+    }
+    section#selling-points {
+        flex-grow: 2;
+        flex-basis: 100%;
+    }
+    code {
+        background: $black;
+        border: 1px solid $grey;
+        color: $grey;
+        page-break-inside: avoid;
+        font-family: monospace;
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 1.6em;
+        max-width: 100%;
+        overflow: auto;
+        padding: $padding;
+        display: block;
+        word-wrap: break-word;
+    }
+    code.before {
+        float: left;
+        width: 40%;
+    }
+    
+    code.after {
+        float: right;
+        width: 40%;
+    }
+}
+
+.messages {
+    padding: $padding;
+    .warning {
+        border: 1px solid #8C8C8C;
+        padding: $padding;
+        color: #fff;
+        background-color: $orange;
+    }
+    .success {
+        background-color: $green;
+        @extend .warning;
+    }
+    .error {
+        background-color: $red;
+        @extend .success;
+        &:hover {
+            background-color: $green;
+        }
+   }
+}
